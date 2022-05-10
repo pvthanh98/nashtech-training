@@ -1,4 +1,4 @@
-# DI Example Project
+# Express Typescript - OOP - Dependency Injection
 DI is presented at :
 - src/utils.human.util
 - src/controller/animal.controller.ts
