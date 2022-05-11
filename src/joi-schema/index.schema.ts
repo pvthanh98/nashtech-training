@@ -18,7 +18,26 @@ const schemas = {
     createAnimal: Joi.object().keys({
         name: Joi.string().required(),
         old: Joi.number().required()
-    })
+    }),
+
+    userRegister: Joi.object().keys({
+        firstName: Joi.string().required(),
+        lastName: Joi.string().required(),
+        birthday: Joi.date().required(),
+        address: Joi.object().keys({
+            city: Joi.string(),
+            country: Joi.string(),
+            postcode: Joi.string(),
+            state: Joi.string(),
+        }),
+        password: Joi.string().required(),
+        email: Joi.string().required(),
+    }),
+
+    signIn: Joi.object().keys({
+        email: Joi.string().required(),
+        password: Joi.string().required()
+    }),
 }; 
 
 export default schemas;

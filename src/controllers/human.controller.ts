@@ -45,7 +45,8 @@ class HumanController {
             /** Employee may be an instance of ITEngineer or MobileSeller */
             /** DI is presented in HumanControlUtil class (constructor) */
             const humanControlUtil = new HumanControlUtil(employee);
-            return res.send(humanControlUtil.generateNickName());
+            const nickname = humanControlUtil.generateNickName();
+            return res.send(nickname);
         } else 
             return res.status(400).send(ErrorTemplate.Employee.EMPLOYEE_NOT_EXIST);
     }
