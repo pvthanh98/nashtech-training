@@ -1,10 +1,11 @@
-import { paginateProcess, paginateResponse } from "../../configs/pagination.config";
-import { User } from "../../databases/models/user.model"
-import { ErrorTemplate } from "../../template/error.template";
-import ServiceResponse from "../../types/service-response"
+import { paginateProcess, paginateResponse } from "../configs/pagination.config";
+import { User } from "../databases/models/user.model"
+import { ErrorTemplate } from "../template/error.template";
+import ServiceResponse from "../types/service-response"
 
-class UserAdminService {
-    public getUsers = async (query: any): Promise<ServiceResponse> => {
+class UserService {
+    public getUsers = async (query: any, userId:any): Promise<ServiceResponse> => {
+        console.log(userId)
         const { page, limit, skip } = paginateProcess(query);
 
         let filterParas : any = {};
@@ -32,7 +33,12 @@ class UserAdminService {
         }
 
         const users = await User
-            .find(filterParas)
+            .find({
+                ...filterParas,
+                _id: {
+                    $ne: userId
+                }
+            })
             .limit(limit)
             .skip(skip)
             .exec()
@@ -63,4 +69,4 @@ class UserAdminService {
     }
 }
 
-export default UserAdminService
+export default UserService

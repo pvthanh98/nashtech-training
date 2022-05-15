@@ -3,7 +3,8 @@ import validatorMiddleware from '../middlewares/validator.middleware';
 import schemas from '../joi-schema/index.schema';
 import AuthService from '../services/auth.service';
 import passport from '../configs/passport.config';
-
+import { RequestCustom } from "../interfaces/common.interface";
+ 
 /** Example of DI (Dependency Injection) - Property Injection */
 class AuthController {
     public path = {
@@ -53,8 +54,8 @@ class AuthController {
         return res.send(data);
     }
 
-    privateRouteTesting = (req: Request | any, res: Response, next: NextFunction) => {
-        return res.send(req.user)
+    privateRouteTesting = (req: RequestCustom, res: Response, next: NextFunction) => {
+        return res.send(req.user);
     }
 }
 

@@ -17,6 +17,11 @@ export const ErrorTemplate = {
     },
 
     Auth: {
+        UNAUTHENTICATED: {
+            statusCode: 401,
+            code: "AUTH_00",
+            message: "Unauthenticated"
+        },
         EMAIL_EXISTED: {
             statusCode: 400,
             code: "AUTH_03",

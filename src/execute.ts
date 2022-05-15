@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
+import { User } from './databases/models/user.model';
+import { Conversation } from './databases/models/conversation.model';
+import ConversationService from './services/conversation.service';
+require('dotenv').config();
 
-const URI = 'mongodb://localhost:27017/nashtech-training';
+// mongoose.connect('mongodb://localhost:27017/today-db-2');
 
-mongoose.connect(URI,
-    {
-        useNewUrlParser: true,
-        useFindAndModify: false,
-        useUnifiedTopology: true
-    }
-);
+// const service = new ConversationService();
+
+// service.sendMessageToConversation("627e1fb712dc84a620e07fb2");

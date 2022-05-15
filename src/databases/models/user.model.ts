@@ -20,15 +20,18 @@ const userSchema = new Schema({
     select:false
   },
   email: {
-    type: String,
-    unique: true
+    type: String
   },
   isAdmin: {
     type: Boolean,
     default: false
-  }
+  },
+  socketId: String
 });
 
 const User = mongoose.model('user', userSchema);
 
-export default User
+export {
+  User,
+  userSchema
+}

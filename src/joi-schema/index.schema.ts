@@ -38,6 +38,18 @@ const schemas = {
         email: Joi.string().required(),
         password: Joi.string().required()
     }),
+
+    createConversations: Joi.object().keys({
+        userIds: Joi.array().items(
+           Joi.string()
+        ).required(),
+        name: Joi.string().default(""),
+        topic: Joi.string().default("")
+    }),
+
+    // uploadFile: Joi.object().keys({
+    //     topic: Joi.string().default("")
+    // })
 }; 
 
 export default schemas;

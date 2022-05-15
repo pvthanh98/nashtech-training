@@ -1,4 +1,4 @@
-import User from '../databases/models/user.model';
+import { User } from '../databases/models/user.model';
 import { ErrorTemplate } from '../template/error.template';
 import ServiceResponse from '../types/service-response';
 import SignIn from '../types/signin';

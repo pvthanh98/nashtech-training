@@ -1,4 +1,4 @@
-import User from "../databases/models/user.model";
+import { User } from "../databases/models/user.model";
 require('dotenv').config();
 
 const passport = require('passport');
